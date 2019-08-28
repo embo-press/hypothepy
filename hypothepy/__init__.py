@@ -4,4 +4,4 @@
 
 __author__ = """EMBO"""
 __email__ = 'embo_dev@embo.org'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
