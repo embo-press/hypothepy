@@ -45,66 +45,67 @@ Features
 Examples of Usage
 -----------------
 
-```
-from hypothepy.v1.api import HypoApi
-hypo = HypoApi(
-    api_key='YOUR PERSONAL API KEY',
-    user_name='YOUR USER NAME'
-)
-hypo.annotations.search(user='EMBO')
-```
+::
+  from hypothepy.v1.api import HypoApi
+  hypo = HypoApi(
+      api_key='YOUR PERSONAL API KEY',
+      user_name='YOUR USER NAME'
+  )
+  hypo.annotations.search(user='EMBO')
 
-### Helpers
-`hypothepy` provides a set of `helpers` to facilitate creating additional objects requiered by hypothes.is API
+Helpers
+~~~~~~~
 
-### `helpers.documents`
+``hypothepy`` provides a set of ``helpers`` to facilitate creating additional objects requiered by hypothes.is API
 
-Allows to create a new `document` objects that you can directly pass as a parameter to api calls:
 
-```python
-from hypothepy.v1.api import HypoApi
+``helpers.documents``
+~~~~~~~~~~~~~~~~~~~
 
-hypo = HypoApi()
-document = hypo.helpers.documents(title='My Title') # => { 'title': 'My Title' }
-hypo.annotations.create(
-    # ...
-    document=document,
-)
-```
+Allows to create a new ``document`` objects that you can directly pass as a parameter to api calls:
 
-### `helpers.permissions`
+::
+  from hypothepy.v1.api import HypoApi
 
-Similarly to `documents`, `helpers.permissions` allows is a handy shortcut for creating permissions objects:
+  hypo = HypoApi()
+  document = hypo.helpers.documents(title='My Title') # => { 'title': 'My Title' }
+  hypo.annotations.create(
+      # ...
+      document=document,
+  )
 
-```python
-from hypothepy.v1.api import HypoApi
+``helpers.permissions``
+~~~~~~~~~~~~~~~~~~~~~~~
 
-hypo = HypoApi()
-hypo.helpers.permissions(
-    read   = ['group:__world__'],
-    update = ['acct:YOUR USER NAME@hypothes.is'],
-    delete = ['acct:YOUR USER NAME@hypothes.is'],
-    admin  = ['acct:YOUR USER NAME@hypothes.is'],
-)
-```
+Similarly to ``documents``, ``helpers.permissions`` allows is a handy shortcut for creating permissions objects:
 
-This example above is such a common pattern that `hypo` provides a preset shortcut for it under `helpers.permissions.READ_ALL`:
+::
+  from hypothepy.v1.api import HypoApi
 
-```python
-hypo.helpers.permissions.READ_ALL # => {
-                                  #     'read': ['group:__world__'],
-                                  #     'update': ['acct:YOUR USER NAME@hypothes.is'],
-                                  #     'delete': ['acct:YOUR USER NAME@hypothes.is'],
-                                  #     'admin': ['acct:YOUR USER NAME@hypothes.is'],
-                                  # }
-```
+  hypo = HypoApi()
+  hypo.helpers.permissions(
+      read   = ['group:__world__'],
+      update = ['acct:YOUR USER NAME@hypothes.is'],
+      delete = ['acct:YOUR USER NAME@hypothes.is'],
+      admin  = ['acct:YOUR USER NAME@hypothes.is'],
+  )
+
+
+This example above is such a common pattern that ``hypo`` provides a preset shortcut for it under ``helpers.permissions.READ_ALL``:
+
+::
+  hypo.helpers.permissions.READ_ALL # => {
+                                    #     'read': ['group:__world__'],
+                                    #     'update': ['acct:YOUR USER NAME@hypothes.is'],
+                                    #     'delete': ['acct:YOUR USER NAME@hypothes.is'],
+                                    #     'admin': ['acct:YOUR USER NAME@hypothes.is'],
+                                    # }
 
 This is useful when you are, for example, creating new annotations:
 
-```python
-hypo.annotations.create(
-    uri='http://www.embo.org',
-    permissions=hypo.helpers.permissions.READ_ALL,
-    # ...
-)
-```
+::
+  hypo.annotations.create(
+      uri='http://www.embo.org',
+      permissions=hypo.helpers.permissions.READ_ALL,
+      # ...
+  )
