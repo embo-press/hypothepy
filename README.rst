@@ -41,6 +41,7 @@ Features
 --------
 
 * Light Python interface for all the REST endpoints available.
+
   - API parameters are simple native python types
   - API calls just return a `requests.Response` object
   - provides handy helpers
