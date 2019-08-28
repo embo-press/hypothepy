@@ -15,7 +15,9 @@ requirements = ['Click>=6.0', ]
 
 setup_requirements = [ ]
 
-test_requirements = [ ]
+test_requirements = [
+    'responses',
+]
 
 setup(
     author="EMBO Press",
