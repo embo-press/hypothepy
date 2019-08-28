@@ -20,7 +20,7 @@ test_requirements = [
 ]
 
 setup(
-    author="EMBO Press",
+    author="EMBO",
     author_email='embo_dev@embo.org',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -48,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/embo-press/hypothepy',
-    version='0.2.0',
+    version='0.2.1',
     zip_safe=False,
 )
