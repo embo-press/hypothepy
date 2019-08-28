@@ -1,3 +1,8 @@
+.. image:: docs/logos/embopress.svg
+        :target: https://www.embopress.org/
+.. image:: docs/logos/embo.png
+        :target: https://www.embo.org/
+
 =========
 Hypothepy
 =========
