@@ -25,7 +25,8 @@ A lightweight Python API for Hypothes.is
 
 * Free software: MIT license
 * Documentation: https://hypothepy.readthedocs.io
-* Check the official [hypothes.is](https://hypothes.is) documentation:
+* Check the official hypothes.is documentation:
+
   - https://h.readthedocs.io/en/latest
   - https://h.readthedocs.io/en/latest/api-reference
 
@@ -37,8 +38,11 @@ Features
   - API parameters are simple native python types
   - API calls just return a `requests.Response` object
   - provides handy helpers
-* Only `version 1 (stable) <a href="https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions" />`_ implemented (for the moment)
-* Only `APIKey Authentication <a href="https://h.readthedocs.io/en/latest/api-reference/#section/Authentication" />`_ implemented (for the moment)
+* Only `version 1 (stable)`_ implemented (for the moment)
+* Only `APIKey Authentication`_ implemented (for the moment)
+
+.. _version 1 (stable): https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions
+.. _APIKey Authentication: https://h.readthedocs.io/en/latest/api-reference/#section/Authentication
 
 
 
