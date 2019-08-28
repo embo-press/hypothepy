@@ -10,7 +10,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: embo
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: L6UmqvdstZHgeeF+QYPTSZLdFhb+w6eigx6AKWFiDUPaXxgXfxjJ7R/4GBNpUJOpmxars42FwMfqaIwbsT0lDtL0e4gvztQXVZp1vls79octAaqt2QZrmgpobOqfE5Tpot5/xszAEilvHQnEClTqW4StawDl3ZXWqUCszpqZJ6ijtT+EdE93wVgr+xWFRXb04x36B5d1LyaHqwPIsU9nRewZ3jl4cnvt6vc/IHw3e0Ieq7SF/UJbHVcxTofQOeSK0Na/b8afOIgDwvwJMiQGjf00DvwGKSs8k5XfBMNTJGnYXtPcrtvpka7gz9VQow6ws0F9rfw6jGrsJcMWlniqt0ZQIxl4zbve5klQ4TXA+kzBK8QDAwqOx4jTq6HjJPjrlmFXKyYSC5KnXPmV5hy5gegfe4ct3mLHmV9+XuA9WrEUAbJhVfgdvE4tmAOgDHJRpOKEhA5v93Q7AngyywPSjObjbo/3YavpHx8uSdKSFlG9sHEE5ruGK/NyrLyREu9P0Fo8mQkGDMvRUgk6g7BzFioEDp/5HpmBJoa/kVkpAFhfBsiRdiPYEt2VSkrSZfsYpgABb/19quCg1W6qzYzMJvAOzWHncoyCo6dvh5p3Ac64o+7sNTEr8+0tga+Q8GDUtGRc8qlehPUw1OE0Lv4XKYQrUaMq1FD9lIQBwW+9m4k=
   on:
     tags: true
     repo: embo-press/hypothepy
