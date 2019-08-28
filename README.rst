@@ -24,18 +24,87 @@ A lightweight Python API for Hypothes.is
 
 
 * Free software: MIT license
-* Documentation: https://hypothepy.readthedocs.io.
+* Documentation: https://hypothepy.readthedocs.io
+* Check the official [hypothes.is](https://hypothes.is) documentation:
+  * https://h.readthedocs.io/en/latest
+  * https://h.readthedocs.io/en/latest/api-reference
 
 
 Features
 --------
 
-* TODO
+* Light Python interface for all the REST endpoints available.
+  * API parameters are simple native python types
+  * API calls just return a `requests.Response` object
+  * provides handy helpers
+* Only [version 1 (stable)](https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions) implemented (for the moment)
+* Only [APIKey Authentication](https://h.readthedocs.io/en/latest/api-reference/#section/Authentication) implemented (for the moment)
 
-Credits
--------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+Examples of Usage
+-----------------
+
+```
+from hypothepy.v1.api import HypoApi
+hypo = HypoApi(
+    api_key='YOUR PERSONAL API KEY',
+    user_name='YOUR USER NAME'
+)
+hypo.annotations.search(user='EMBO')
+```
+
+### Helpers
+`hypothepy` provides a set of `helpers` to facilitate creating additional objects requiered by hypothes.is API
+
+### `helpers.documents`
+
+Allows to create a new `document` objects that you can directly pass as a parameter to api calls:
+
+```python
+from hypothepy.v1.api import HypoApi
+
+hypo = HypoApi()
+document = hypo.helpers.documents(title='My Title') # => { 'title': 'My Title' }
+hypo.annotations.create(
+    # ...
+    document=document,
+)
+```
+
+### `helpers.permissions`
+
+Similarly to `documents`, `helpers.permissions` allows is a handy shortcut for creating permissions objects:
+
+```python
+from hypothepy.v1.api import HypoApi
+
+hypo = HypoApi()
+hypo.helpers.permissions(
+    read   = ['group:__world__'],
+    update = ['acct:YOUR USER NAME@hypothes.is'],
+    delete = ['acct:YOUR USER NAME@hypothes.is'],
+    admin  = ['acct:YOUR USER NAME@hypothes.is'],
+)
+```
+
+This example above is such a common pattern that `hypo` provides a preset shortcut for it under `helpers.permissions.READ_ALL`:
+
+```python
+hypo.helpers.permissions.READ_ALL # => {
+                                  #     'read': ['group:__world__'],
+                                  #     'update': ['acct:YOUR USER NAME@hypothes.is'],
+                                  #     'delete': ['acct:YOUR USER NAME@hypothes.is'],
+                                  #     'admin': ['acct:YOUR USER NAME@hypothes.is'],
+                                  # }
+```
+
+This is useful when you are, for example, creating new annotations:
+
+```python
+hypo.annotations.create(
+    uri='http://www.embo.org',
+    permissions=hypo.helpers.permissions.READ_ALL,
+    # ...
+)
+```
