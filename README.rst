@@ -1,4 +1,5 @@
-.. image:: docs/logos/embopress.svg
+.. image:: docs/logos/embopress.png
+        :width: 200
         :target: https://www.embopress.org/
 .. image:: docs/logos/embo.png
         :target: https://www.embo.org/
