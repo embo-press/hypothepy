@@ -46,12 +46,12 @@ Examples of Usage
 -----------------
 
 ::
-  from hypothepy.v1.api import HypoApi
-  hypo = HypoApi(
-      api_key='YOUR PERSONAL API KEY',
-      user_name='YOUR USER NAME'
-  )
-  hypo.annotations.search(user='EMBO')
+    from hypothepy.v1.api import HypoApi
+    hypo = HypoApi(
+        api_key='YOUR PERSONAL API KEY',
+        user_name='YOUR USER NAME'
+    )
+    hypo.annotations.search(user='EMBO')
 
 Helpers
 ~~~~~~~
