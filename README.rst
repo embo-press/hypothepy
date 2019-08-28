@@ -26,19 +26,19 @@ A lightweight Python API for Hypothes.is
 * Free software: MIT license
 * Documentation: https://hypothepy.readthedocs.io
 * Check the official [hypothes.is](https://hypothes.is) documentation:
-  * https://h.readthedocs.io/en/latest
-  * https://h.readthedocs.io/en/latest/api-reference
+  - https://h.readthedocs.io/en/latest
+  - https://h.readthedocs.io/en/latest/api-reference
 
 
 Features
 --------
 
 * Light Python interface for all the REST endpoints available.
-  * API parameters are simple native python types
-  * API calls just return a `requests.Response` object
-  * provides handy helpers
-* Only [version 1 (stable)](https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions) implemented (for the moment)
-* Only [APIKey Authentication](https://h.readthedocs.io/en/latest/api-reference/#section/Authentication) implemented (for the moment)
+  - API parameters are simple native python types
+  - API calls just return a `requests.Response` object
+  - provides handy helpers
+* Only `version 1 (stable) <a href="https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions" />`_ implemented (for the moment)
+* Only `APIKey Authentication <a href="https://h.readthedocs.io/en/latest/api-reference/#section/Authentication" />`_ implemented (for the moment)
 
 
 
@@ -61,7 +61,7 @@ Helpers
 
 
 ``helpers.documents``
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Allows to create a new ``document`` objects that you can directly pass as a parameter to api calls:
 
