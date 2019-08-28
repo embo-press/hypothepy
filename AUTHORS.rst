@@ -5,9 +5,10 @@ Credits
 Development Lead
 ----------------
 
-* EMBO Press <embo_dev@embo.org>
+* EMBO <embo_dev@embo.org>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Thomas Lemberger <thomas.lemberger@embo.org>
+* Alejandro Riera Mainar <alejandro.riera@embo.org>
