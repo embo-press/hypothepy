@@ -45,8 +45,10 @@ Features
   - API parameters are simple native python types
   - API calls just return a `requests.Response` object
   - provides handy helpers
+* Python 3.6+
 * Only `version 1 (stable)`_ implemented (for the moment)
 * Only `APIKey Authentication`_ implemented (for the moment)
+* Command line interface (cooming soon)
 
 .. _version 1 (stable): https://h.readthedocs.io/en/latest/api-reference/#section/Hypothesis-API/Versions
 .. _APIKey Authentication: https://h.readthedocs.io/en/latest/api-reference/#section/Authentication
