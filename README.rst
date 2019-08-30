@@ -24,7 +24,7 @@ Hypothepy
 
 
 
-A lightweight Python API for Hypothes.is
+A lightweight Python API for `Hypothes.is <http://hypothes.is>`_
 
 
 * Free software: MIT license
