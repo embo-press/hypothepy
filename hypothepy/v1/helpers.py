@@ -100,6 +100,15 @@ class PermissionsHelper:
         return [input]
 
 
+class HighwireHelper:
+    def __call__(self, doi=[], pdf_url=[]) -> Dict:
+        highwire = {
+            'doi': doi,
+            'pdf_url': pdf_url,
+        }
+        return remove_empty(highwire)
+
+
 class DocumentsHelper:
     def __call__(self, title='', dc={}, highwire={}, link=[]) -> Dict:
         document = {
@@ -114,4 +123,5 @@ class DocumentsHelper:
 class Helpers:
     def __init__(self, user_name):
         self.permissions = PermissionsHelper(user_name=user_name)
+        self.highwire = HighwireHelper()
         self.documents = DocumentsHelper()
