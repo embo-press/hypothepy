@@ -33,6 +33,28 @@ Allows to create a new ``document`` objects that you can directly pass as a para
         document=document,
     )
 
+``helpers.highwire``
+~~~~~~~~~~~~~~~~~~~~~
+
+Allows to create a new ``highwire`` object that can be passed as a parameter when constructing a ``document`` object.
+
+This is particuarly useful to be able to specify a doi that resolves to the document being annotated. Note that the doi is in a list.
+
+::
+
+    from hypothepy.v1.api import HypoApi
+
+    hypo = HypoApi()
+    highwire = hypo.helpers.highwire(doi=['my.doi/number'])
+    document = hypo.helpers.documents(
+        title='My Title', 
+        highwire=highwire
+    ) # => { 'title': 'My Title', 'highwire': { 'doi': ['my.doi/number'] } }
+    hypo.annotations.create(
+        # ...
+        document=document,
+    )
+
 ``helpers.permissions``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
