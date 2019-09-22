@@ -16,18 +16,41 @@ Helpers
 
 ``hypothepy`` provides a set of ``helpers`` to facilitate creating additional objects requiered by hypothes.is API
 
-
-``helpers.documents``
+``helpers.dc``
 ~~~~~~~~~~~~~~~~~~~~~
 
-Allows to create a new ``document`` objects that you can directly pass as a parameter to api calls:
+Allows to create a new ``dc`` object that can be passed as a parameter when constructing a ``document`` object.
 
 ::
 
     from hypothepy.v1.api import HypoApi
 
     hypo = HypoApi()
-    document = hypo.helpers.documents(title='My Title') # => { 'title': 'My Title' }
+    dc = hypo.helpers.highwire(identifier=['my_identifier'])
+    document = hypo.helpers.documents(
+        title='My Title', 
+        dc=dc
+    ) # => { 'title': 'My Title', 'dc': { 'identifier': ['my_identifier'] } }
+    hypo.annotations.create(
+        # ...
+        document=document,
+    )
+
+``helpers.link``
+~~~~~~~~~~~~~~~~~~~~~
+
+Allows to create a new ``link`` object that can be passed as a parameter when constructing a ``document`` object.
+
+::
+
+    from hypothepy.v1.api import HypoApi
+
+    hypo = HypoApi()
+    link = hypo.helpers.link(href='my_href', type='my_type')
+    document = hypo.helpers.documents(
+        title='My Title', 
+        link=[link]
+    ) # => { 'title': 'My Title', 'link': [{'href': 'my_href, 'type': 'my_type'}] }
     hypo.annotations.create(
         # ...
         document=document,
@@ -54,6 +77,23 @@ This is particuarly useful to be able to specify a doi that resolves to the docu
         # ...
         document=document,
     )
+
+``helpers.documents``
+~~~~~~~~~~~~~~~~~~~~~
+
+Allows to create a new ``document`` objects that you can directly pass as a parameter to api calls:
+
+::
+
+    from hypothepy.v1.api import HypoApi
+
+    hypo = HypoApi()
+    document = hypo.helpers.documents(title='My Title') # => { 'title': 'My Title' }
+    hypo.annotations.create(
+        # ...
+        document=document,
+    )
+
 
 ``helpers.permissions``
 ~~~~~~~~~~~~~~~~~~~~~~~
