@@ -4,6 +4,66 @@ import unittest
 
 from .common import HypoApiTest, TEST_USER_NAME
 
+class test_new_dc(HypoApiTest):
+    def test_create_dc(self):
+        identifier = 'my_identifier'
+        tested = self.hypo.helpers.dc(identifier=[identifier])
+        expected = {'identifier': [identifier]}
+        self.assertEqual(tested, expected)
+
+class test_new_link(HypoApiTest):
+    def test_create_link(self):
+        href = 'my_href'
+        type = 'my_type'
+        tested = self.hypo.helpers.link(
+            href=href,
+            type=type
+        )
+        expected = {
+            'href': href,
+            'type': type,
+        }
+        self.assertEqual(tested, expected)
+
+class HelpersHighwireTest(HypoApiTest):
+    def test_create_new_highwire(self):
+        tested = self.hypo.helpers.highwire(
+            doi=['my_doi_123'],
+            pdf_url='my_pdf_url_123'
+        )
+        expected = {
+            'doi': ['my_doi_123'],
+            'pdf_url': 'my_pdf_url_123'
+        }
+        self.assertEqual(tested, expected)
+
+
+class HelpersDocumentTest(HypoApiTest):
+    def test_create_new_document(self):
+        title = 'my_title'
+        doi = 'my_doi'
+        identifier = 'my_identifier'
+        href = 'my_href'
+        type = 'my_type'
+        highwire = self.hypo.helpers.highwire(doi=['my_doi'])
+        dc = self.hypo.helpers.dc(identifier=[identifier])
+        link = self.hypo.helpers.link(href=href, type=type)
+        tested = self.hypo.helpers.documents(
+            title=title,
+            dc=dc,
+            highwire=highwire,
+            link=[link],
+        )
+        expected = {
+            'title': title,
+            'dc': {'identifier': [identifier]},
+            'highwire': {
+                'doi': [doi],
+            },
+            'link': [{'href':href, 'type':type}],
+        }
+        self.assertEqual(tested, expected)
+
 class HelpersPermissionTest(HypoApiTest):
     def test_read_all_preset(self):
         self.assertEqual(
