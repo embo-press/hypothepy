@@ -8,3 +8,5 @@ tox==3.13.2
 coverage==4.5.4
 Sphinx==2.2.0
 twine==1.13.0
+click==7.0
+responses==0.10.6
