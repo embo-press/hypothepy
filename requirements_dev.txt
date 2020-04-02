@@ -6,7 +6,7 @@ flake8==3.7.8
 autopep8==1.4.4
 tox==3.13.2
 coverage==4.5.4
-Sphinx==2.2.0
+Sphinx==2.4.4
 twine==1.15.0
 click==7.0
 responses==0.10.6
